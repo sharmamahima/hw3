@@ -1,3 +1,14 @@
 <h1><%= @place.name %></h1>
 
+<ul>
+  <% @entries.each do |entry| %>
+    <div style="font-size: 20px; font-weight: bold;"><%= entry.title %></div>
+    <div style="font-style: italic;"><%= entry.posted_on.strftime("%B %d, %Y") %></div>
+    <p><%= entry.description %></p>
+  <% end %>
+</ul>
+
+<%= link_to 'New Post', new_place_entry_path(@place) %>
+<br>
+<br>
 <%= link_to 'Back to Places', places_path %>
