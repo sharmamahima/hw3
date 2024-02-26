@@ -1,0 +1,24 @@
+<h1>Add Entry for <%= @place.name %></h1>
+
+<%= form_for([@place, @entry]) do |form| %>
+  <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+  <div class="field">
+    <%= form.label :posted_on %><br>
+    <%= form.date_field :posted_on %>
+  </div>
+
+  <%= form.hidden_field :place_id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Place', place_path(@place) %>
